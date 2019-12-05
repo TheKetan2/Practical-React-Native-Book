@@ -1,4 +1,4 @@
-#Weather App Using React Native : From Fullstack React Native book
+##Weather App Using React Native : From Fullstack React Native book
 
 Things leanerd:
 
@@ -8,5 +8,6 @@ Things leanerd:
 - Designing modular component based layout
 - Displaying conditional based components
 
-#Screen Cast:
+##Screen Cast:
+
 ![alt text](assets/screen.gif)
