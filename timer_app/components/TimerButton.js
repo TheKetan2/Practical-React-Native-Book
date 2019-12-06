@@ -7,10 +7,19 @@ export default function TimerButton({ color, title, small, onPress }) {
       style={[styles.button, { borderColor: color }]}
       onPress={onPress}
     >
+      {/* {small ? (
+        <Text style={[styles.buttonText, styles.small]}>{title}</Text>
+      ) : (
+        <Text Text style={[styles.buttonText, styles.large]}>
+          {title}
+        </Text>
+      )} */}
       <Text
-        style={
-          ([styles.buttonText, small ? styles.small : styles.large], { color })
-        }
+        style={[
+          styles.buttonText,
+          small ? styles.small : styles.large,
+          { color }
+        ]}
       >
         {title}
       </Text>
@@ -35,7 +44,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: "center",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontSize: 30
   },
   title: {
     fontSize: 14,

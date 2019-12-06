@@ -7,7 +7,7 @@ export default function TimerForm({ id, title, project }) {
   const submitText = id ? "Update" : "Create";
 
   return (
-    <View style={StyleSheet.formContainer}>
+    <View style={styles.formContainer}>
       <View style={styles.attributeContainer}>
         <Text style={styles.textInputTitle}>Title</Text>
         <View style={styles.textInputContainer}>
