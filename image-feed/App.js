@@ -1,29 +1,24 @@
 import React from "react";
-import { StyleSheet, Text, View, StatusBar } from "react-native";
+import { StyleSheet, Text, View, StatusBar, Platform } from "react-native";
 import Avatar from "./components/Avatars";
 import AuthorRow from "./components/AuthorRow";
 import Card from "./components/Card";
 // import { Constants } from "expo";
+import CardList from "./components/CardList";
+import Feed from "./screen/Feed";
+
+const items = [
+  { id: 0, author: "Bob Ross" },
+  { id: 1, author: "Chuck Norris" }
+];
+const platformVersion =
+  Platform.OS === "ios" ? parseInt(Platform.Version, 10) : Platform.Version;
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Card
-          fullname={"First Last"}
-          linkText={"Comments"}
-          onPressLinkText={() => {
-            console.log("Pressed Link");
-          }}
-          image={{ uri: "https://unsplash.it/600/600" }}
-        />
-        {/* <AuthorRow
-          fullname={"First Last"}
-          linkText={"Comments"}
-          onPressLinkText={() => {
-            console.log("Pressed link!");
-          }}
-        /> */}
+        <Feed style={styles.feed} />
       </View>
     );
   }
@@ -34,5 +29,12 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight + 1,
     flex: 1,
     backgroundColor: "#fff"
+  },
+  feed: {
+    flex: 1,
+    marginTop:
+      Platform.OS === "android" || platformVersion < 11
+        ? StatusBar.currentHeight
+        : 0
   }
 });
