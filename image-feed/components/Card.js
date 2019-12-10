@@ -1,23 +1,23 @@
-import { Image, StyleSheet, View, ActivityIndicator } from "react-native";
-import PropTypes from "prop-types";
-import React from "react";
+import { ActivityIndicator, Image, StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import AuthorRow from "./AuthorRow";
+import AuthorRow from './AuthorRow';
 
 export default class Card extends React.Component {
+  static propTypes = {
+    fullname: PropTypes.string.isRequired,
+    image: Image.propTypes.source.isRequired,
+    linkText: PropTypes.string.isRequired,
+    onPressLinkText: PropTypes.func.isRequired,
+  };
+
   state = {
-    loading: true
+    loading: true,
   };
 
   handleLoad = () => {
-    this.setState({
-      loading: false
-    });
-  };
-
-  static defaultProps = {
-    linkText: "",
-    onPressLinkText: () => {}
+    this.setState({ loading: false });
   };
 
   render() {
@@ -33,7 +33,7 @@ export default class Card extends React.Component {
         />
         <View style={styles.image}>
           {loading && (
-            <ActivityIndicator style={StyleSheet.absoluteFill} size={"large"} />
+            <ActivityIndicator style={StyleSheet.absoluteFill} size={'large'} />
           )}
           <Image
             style={StyleSheet.absoluteFill}
@@ -49,6 +49,6 @@ export default class Card extends React.Component {
 const styles = StyleSheet.create({
   image: {
     aspectRatio: 1,
-    backgroundColor: "rgba(0,0,0,0.02)"
-  }
+    backgroundColor: 'rgba(0,0,0,0.02)',
+  },
 });
