@@ -9,3 +9,34 @@ export const MessageShape = PropTypes.shape({
     longitude: PropTypes.number.isRequired
   })
 });
+
+let messageId = 0;
+
+const getNextId = () => {
+  messageId += 1;
+  return messageId;
+};
+
+export const createTextMessage = text => {
+  return {
+    type: "text",
+    id: getNextId(),
+    text
+  };
+};
+
+export const createImageMessage = url => {
+  return {
+    type: "image",
+    id: getNextId(),
+    uri
+  };
+};
+
+export const createLocationMessage = coordinate => {
+  return {
+    type: "location",
+    id: getNextId(),
+    coordinate
+  };
+};
